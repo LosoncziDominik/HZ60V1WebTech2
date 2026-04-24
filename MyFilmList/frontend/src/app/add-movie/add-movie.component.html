@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card">
+    <h2>➕ Add Movie</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="grid">
+
+        <div class="form-group">
+          <label>Poster</label>
+          <input type="file" accept="image/*" (change)="onFileSelected($event)">
+        </div>
+
+        <div class="form-group">
+          <label>Title</label>
+          <input formControlName="title">
+        </div>
+
+        <div class="form-group">
+          <label>Director</label>
+          <input formControlName="director">
+        </div>
+
+        <div class="form-group">
+          <label>Length (min)</label>
+          <input type="number" formControlName="length">
+        </div>
+
+        <div class="form-group">
+          <label>Year</label>
+          <input type="number" formControlName="year">
+        </div>
+
+        <div class="form-group">
+          <label>IMDb Score</label>
+          <input type="number" step="0.1" formControlName="imdbScore">
+        </div>
+
+        <div class="form-group">
+          <label>Your Score</label>
+          <input type="number" formControlName="yourScore">
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>Genres</label>
+        <input formControlName="genresText" placeholder="Sci-Fi, Drama">
+      </div>
+
+      <div class="form-group">
+        <label>Synopsis</label>
+        <textarea formControlName="synopsis"></textarea>
+      </div>
+
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" formControlName="watched">
+          Watched
+        </label>
+
+        <label>
+          <input type="checkbox" formControlName="onPlanList">
+          On Plan List
+        </label>
+      </div>
+
+      <button type="submit" class="btn-primary">Save Movie</button>
+    </form>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </div>
+</div>

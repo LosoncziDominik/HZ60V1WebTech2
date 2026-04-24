@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header">
+    <h2>Search Movies</h2>
+  </div>
+
+  <div class="search-bar">
+    <input
+      [(ngModel)]="query"
+      type="text"
+      placeholder="Search by title..."
+      (keyup.enter)="search()"
+    />
+    <button class="btn-primary" (click)="search()">Search</button>
+  </div>
+
+  <p *ngIf="loading">Loading...</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
+  <p *ngIf="success" class="success">{{ success }}</p>
+
+  <div class="movie-grid" *ngIf="movies.length > 0; else emptyState">
+    <div class="movie-card" *ngFor="let movie of movies">
+      <div class="movie-content">
+        <img
+          [src]="movie.posterUrl ? 'http://localhost:4222' + movie.posterUrl : '/no-image.png'"
+          [alt]="movie.title"
+          class="movie-poster"
+        />
+
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+          <p class="year">{{ movie.year }}</p>
+          <p><strong>Director:</strong> {{ movie.director || 'Unknown' }}</p>
+
+          <p *ngIf="movie.imdbScore">
+            IMDb: {{ movie.imdbScore }}
+          </p>
+
+          <p *ngIf="movie.genres?.length">
+            {{ movie.genres?.join(', ') }}
+          </p>
+
+          <p *ngIf="movie.synopsis">
+            {{ movie.synopsis }}
+          </p>
+
+          <button class="btn-primary" (click)="addToMyList(movie._id)">
+            Add to my list
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyState>
+    <p class="empty">No movies found.</p>
+  </ng-template>
+</div>

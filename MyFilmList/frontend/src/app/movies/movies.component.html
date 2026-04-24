@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="header">
+    <h2>My Movies</h2>
+    <a routerLink="/movies/add" class="btn-primary">+ Add Movie</a>
+  </div>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <div *ngIf="movies.length > 0; else emptyList" class="movie-grid">
+    <div class="movie-card" *ngFor="let movie of movies">
+      
+      <img
+        [src]="movie.posterUrl ? 'http://localhost:4222' + movie.posterUrl : '/no-image.png'"
+        [alt]="movie.title"
+        class="movie-poster"
+      />
+
+      <h3>{{ movie.title }}</h3>
+       <p class="year">{{ movie.year }}</p>
+
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+
+        <p *ngIf="movie.yourScore">
+          Your Score: {{ movie.yourScore }}
+        </p>
+
+        <p *ngIf="movie.genres?.length">
+          {{ movie.genres?.join(', ') }}
+        </p>
+
+        <button class="btn-danger" (click)="deleteMovie(movie._id)">
+          Delete
+        </button>
+    </div>
+  </div>
+
+  <ng-template #emptyList>
+    <p class="empty">No movies yet.</p>
+  </ng-template>
+</div>

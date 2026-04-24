@@ -1,0 +1,285 @@
+{
+    "movies":[
+        {
+        "title": "Interstellar",
+        "imdbScore": 8.7,
+        "director": "Christopher Nolan",
+        "actors": [
+            "Matthew McConaughey",
+            "Anne Hathaway",
+            "Jessica Chastain"
+        ],
+        "length": 179,
+        "year": 2014,
+        "synopsis": "In a dystopian future where Earth has become near-uninhabitable, a team of astronauts embark on a mission to find a new home for humanity.",
+        "genres": [
+            "Sci-fi",
+            "Epic",
+            "Time Travel"
+        ],
+        "posterUrl": "/uploads/interstellar.jpg"
+        },
+        {
+        "title": "Inception",
+        "imdbScore": 8.8,
+        "director": "Christopher Nolan",
+        "actors": [
+            "Leonardo DiCaprio",
+            "Joseph Gordon-Levitt",
+            "Eliott Page"
+        ],
+        "length": 168,
+        "year": 2010,
+        "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO, but his tragic past may doom the project and his team to disaster.",
+        "genres": [
+            "Sci-fi",
+            "Epic",
+            "Action",
+            "Psychological Thriller"
+        ],
+        "posterUrl": "/uploads/inception.jpg"
+        },
+        {
+        "title": "Godfather",
+        "imdbScore": 9.2,
+        "director": "Francis Ford Coppola",
+        "actors": [
+            "Marlon Brando",
+            "Al Pachino",
+            "James Caan"
+        ],
+        "length": 175,
+        "year": 1972,
+        "synopsis": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "genres": [
+            "Gangster",
+            "Epic",
+            "Psychological Drama",
+            "Crime"
+        ],
+        "posterUrl": "/uploads/godfather.jpg"
+        },
+        {
+        "title": "The Shawshank Redemption",
+        "imdbScore": 9.3,
+        "director": "Frank Darabont",
+        "actors": [
+            "Tim Robbins",
+            "Morgan Freeman",
+            "Bob Gunton",
+            "William Sadler"
+        ],
+        "length": 142,
+        "year": 1994,
+        "synopsis": "A wrongfully convicted banker forms a close friendship with a hardened convict over a quarter century while retaining his humanity through simple acts of compassion.",
+        "genres": [
+            "Period Drama",
+            "Prison Drama",
+            "Drama"
+        ],
+        "posterUrl": "/uploads/the_shawshank_redemption"
+        },
+        {
+        "title": "Schindler's List",
+        "imdbScore": 9.0,
+        "director": "Steven Spilberg",
+        "actors": [
+            "Liam Neeson",
+            "Ralph Fiennes",
+            "Ben Kingsley"
+        ],
+        "length": 195,
+        "year": 1993,
+        "synopsis": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+        "genres": [
+            "Epic",
+            "Prison Drama",
+            "Tragedy",
+            "Psychological Drama"
+        ],
+        "posterUrl": "/uploads/schindler's_list"
+        },
+        {
+        "title": "12 Angry Men",
+        "imdbScore": 9.0,
+        "director": "Sidney Lumet",
+        "actors": [
+            "Henry Fonda",
+            "Lee J. Cobb",
+            "Martin Balsam"
+        ],
+        "length": 96,
+        "year": 1957,
+        "synopsis": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
+        "genres": [
+            "Legal Drama",
+            "Crime",
+            "Drama",
+            "Psychological Drama"
+        ],
+        "posterUrl": "/uploads/12_angry_men"
+        },
+        {
+        "title": "Forrest Gump",
+        "imdbScore": 8.8,
+        "director": "Robert Zemeckis",
+        "actors": [
+            "Tom Hanks",
+            "Robin Wright",
+            "Gary Sinise"
+        ],
+        "length": 142,
+        "year": 1994,
+        "synopsis": "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
+        "genres": [
+            "Epic",
+            "Drama",
+            "Tragic Romance",
+            "Period Drama"
+        ],
+        "posterUrl": "/uploads/forrest_gump"
+        },
+        {
+        "title": "Pulp Fiction",
+        "imdbScore": 8.8,
+        "director": "Quentin Tarantino",
+        "actors": [
+            "John Travolta",
+            "Uma Thurman",
+            "Samuel L. Jackson",
+            "Bruce Willis"
+        ],
+        "length": 154,
+        "year": 1994,
+        "synopsis": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        "genres": [
+            "Dark Comedy",
+            "Drug Crime",
+            "Crime",
+            "Gangster"
+        ],
+        "posterUrl": "/uploads/forrest_gump"
+        },
+        {
+        "title": "Fight Club",
+        "imdbScore": 8.8,
+        "director": "David Fincher",
+        "actors": [
+            "Brad Pitt",
+            "Edward Norton",
+            "Meat Loaf"
+        ],
+        "length": 139,
+        "year": 1999,
+        "synopsis": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+        "genres": [
+            "Dark Comedy",
+            "Psychological Drama",
+            "Psychological Thriller",
+            "Crime"
+        ],
+        "posterUrl": "/uploads/fight_club"
+        },
+        {
+        "title": "Matrix",
+        "imdbScore": 8.7,
+        "director": "Lana Wachowski, Lilly Wachowski",
+        "actors": [
+            "Keanu Reeves",
+            "Laurence Fishburne",
+            "Carrie-Anne Moss"
+        ],
+        "length": 136,
+        "year": 1999,
+        "synopsis": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+        "genres": [
+            "Dystopian Sci-fi",
+            "Action Epic",
+            "Artificial Intelligence",
+            "Martial Arts"
+        ],
+        "posterUrl": "/uploads/matrix"
+        },
+        {
+        "title": "It's A Wonderful Life",
+        "imdbScore": 8.6,
+        "director": "Frank Capra",
+        "actors": [
+            "James Stewart",
+            "Donna Reed",
+            "Lionel Barrymore"
+        ],
+        "length": 130,
+        "year": 1946,
+        "synopsis": "An angel is sent from Heaven to help a desperately frustrated businessman see the value of his own life.",
+        "genres": [
+            "Feel-Good Romance",
+            "Psychological Drama",
+            "Supernatural Fantasy",
+            "Holiday"
+        ],
+        "posterUrl": "/uploads/it's_a_wonferful_life"
+        },
+        {
+        "title": "The Lion King",
+        "imdbScore": 8.5,
+        "director": "Roger Allers, Rob Minkoff",
+        "actors": [
+            "Matthew Broderick (Simba)",
+            "Jeremy Irons (Scar)",
+            "James Earl Jones (Mufasa)",
+            "Nathan Lane (Timon)"
+        ],
+        "length": 88,
+        "year": 1994,
+        "synopsis": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+        "genres": [
+            "Animal Adventure",
+            "Coming-of-Age",
+            "Drama",
+            "Musical"
+        ],
+        "posterUrl": "/uploads/the_lion_king"
+        },
+        {
+        "title": "Leon: The Professional",
+        "imdbScore": 8.5,
+        "director": "Luc Besson",
+        "actors": [
+            "Jean Reno",
+            "Natalie Protman",
+            "Gary Oldman"
+        ],
+        "length": 110,
+        "year": 1994,
+        "synopsis": "When her family is murdered by a group of corrupt officers led by the tyrannical Norman Stansfield, a young 12-year-old girl enlists the help of an Italian-American hitman to seek revenge.",
+        "genres": [
+            "Psychological Drama",
+            "Tragedy",
+            "Action",
+            "Thriller"
+        ],
+        "posterUrl": "/uploads/leon_the_professonal"
+        },
+        {
+        "title": "WALL-E",
+        "imdbScore": 8.4,
+        "director": "Andrew Stanton",
+        "actors": [
+            "Ben Burtt (WALL-E)",
+            "Elissa Knight (EVE)",
+            "Jeff Garlin (Captain)"
+        ],
+        "length": 98,
+        "year": 2008,
+        "synopsis": "A robot who is responsible for cleaning a waste-covered Earth meets another robot and falls in love with her. Together, they set out on a journey that will alter the fate of mankind.",
+        "genres": [
+            "Adventure Epic",
+            "Dystopian Sci-fi",
+            "Psychological Drama",
+            "Computer Animation"
+        ],
+        "posterUrl": "/uploads/wall-e"
+        }
+    ]
+}

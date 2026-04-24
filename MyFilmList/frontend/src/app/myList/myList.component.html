@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>My List</h2>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <div class="movie-grid" *ngIf="items.length > 0; else emptyState">
+    <div class="movie-card" *ngFor="let item of items">
+      <ng-container *ngIf="getMovie(item) as movie">
+        <div class="movie-content">
+          <img
+            [src]="movie.posterUrl ? 'http://localhost:4222' + movie.posterUrl : '/no-image.png'"
+            [alt]="movie.title"
+            class="movie-poster"
+          />
+
+          <div class="movie-info">
+            <h3>{{ movie.title }}</h3>
+            <p class="year">{{ movie.year }}</p>
+            <p><strong>Director:</strong> {{ movie.director || 'Unknown' }}</p>
+
+            <p *ngIf="movie.genres?.length">
+              🎭 {{ movie.genres?.join(', ') }}
+            </p>
+
+            <p>
+              <strong>Status:</strong>
+              {{ item.watched ? 'Watched' : 'Planned' }}
+            </p>
+
+            <div class="actions">
+              <button class="btn-primary" *ngIf="!item.watched" (click)="markWatched(item)">
+                Mark watched
+              </button>
+
+              <button class="btn-danger" (click)="remove(item._id)">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #emptyState>
+    <p class="empty">Your list is empty.</p>
+  </ng-template>
+</div>
