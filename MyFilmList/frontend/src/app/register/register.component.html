@@ -1,38 +1,41 @@
-<div class="auth-container">
-  <form class="auth-card" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h2>Register</h2>
+<div class="container">
+    <div class="card">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <p *ngIf="error" class="error">{{ error }}</p>
+            <h2>Register</h2>
 
-    <input
-      type="email"
-      formControlName="email"
-      placeholder="Email"
-    />
+            <p *ngIf="error" class="error">{{ error }}</p>
+            <div class="form-group">
+                <input
+                type="email"
+                formControlName="email"
+                placeholder="Email"
+                />
+            </div>
 
-    <div class="password-wrapper">
-      <input
-        [type]="showPassword ? 'text' : 'password'"
-        formControlName="password"
-        placeholder="Password"
-      />
+            <div class="password-wrapper">
+            <input
+                [type]="showPassword ? 'text' : 'password'"
+                formControlName="password"
+                placeholder="Password"
+            />
+            <button
+                type="button"
+                class="password-toggle"
+                (click)="showPassword = !showPassword"
+            >
+                {{ showPassword ? 'Hide' : 'Show' }}
+            </button>
+            </div>
+            <br>
+            <button type="submit" class="btn-primary">
+            Register
+            </button>
 
-      <button
-        type="button"
-        class="password-toggle"
-        (click)="showPassword = !showPassword"
-      >
-        {{ showPassword ? 'Hide' : 'Show' }}
-      </button>
-    </div>
-
-    <button type="submit" class="submit-btn">
-      Register
-    </button>
-
-    <p class="switch-text">
-      Already have an account?
-      <a routerLink="/login">Login</a>
-    </p>
-  </form>
+            <p class="switch-text">
+            Already have an account?
+            <a routerLink="/login">Login</a>
+            </p>
+        </form>
+   </div>
 </div>

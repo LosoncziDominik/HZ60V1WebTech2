@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Movie, MovieService } from '../services/movie.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-movies',
@@ -13,7 +15,11 @@ export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
   error = '';
 
-  constructor(private movieService: MovieService) {}
+  constructor(
+    private movieService: MovieService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadMovies();
@@ -39,5 +45,10 @@ export class MoviesComponent implements OnInit {
         this.error = err.error?.error || 'Delete failed';
       }
     });
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

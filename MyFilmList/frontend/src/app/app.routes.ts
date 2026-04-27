@@ -9,11 +9,11 @@ import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'movies', component: MoviesComponent, canActivate: [authGuard] },
   { path: 'add-movie', component: AddMovieComponent },
   { path: 'catalog', component: CatalogComponent, canActivate: [authGuard] },
   { path: 'my-list', component: MyListComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' },
-  { path: 'register', component: RegisterComponent }
+  { path: '**', redirectTo: '/login' }
 ];

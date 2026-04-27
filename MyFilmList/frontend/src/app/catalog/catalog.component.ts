@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CatalogMovie, CatalogService } from '../services/catalogService';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-catalog',
@@ -18,7 +20,11 @@ export class CatalogComponent implements OnInit {
   error = '';
   success = '';
 
-  constructor(private catalogService: CatalogService) {}
+  constructor(
+    private catalogService: CatalogService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadAll();
@@ -76,5 +82,10 @@ export class CatalogComponent implements OnInit {
         this.error = err.error?.error || 'Could not add movie';
       }
     });
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
