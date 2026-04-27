@@ -1,0 +1,38 @@
+<div class="auth-container">
+  <form class="auth-card" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="Email"
+    />
+
+    <div class="password-wrapper">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        formControlName="password"
+        placeholder="Password"
+      />
+
+      <button
+        type="button"
+        class="password-toggle"
+        (click)="showPassword = !showPassword"
+      >
+        {{ showPassword ? 'Hide' : 'Show' }}
+      </button>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Register
+    </button>
+
+    <p class="switch-text">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </form>
+</div>

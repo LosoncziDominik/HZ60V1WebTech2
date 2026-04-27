@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css'
 })
-export class LoginComponent {
+export class RegisterComponent {
   form;
   error = '';
   showPassword = false;
@@ -23,7 +23,7 @@ export class LoginComponent {
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -32,15 +32,11 @@ export class LoginComponent {
 
     const { email, password } = this.form.value;
 
-    this.authService.login(email!, password!).subscribe({
+    this.authService.register(email!, password!).subscribe({
       next: () => this.router.navigate(['/movies']),
       error: err => {
-        this.error = err.error?.error || 'Login failed';
+        this.error = err.error?.error || 'Registration failed';
       }
     });
-  }
-  
-  goToRegister(): void {
-    this.router.navigate(['/register']);
   }
 }

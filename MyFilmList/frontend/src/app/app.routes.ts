@@ -5,6 +5,7 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { MyListComponent } from './myList/myList.component';
 import { authGuard } from './guards/auth.guard';
+import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'catalog', component: CatalogComponent, canActivate: [authGuard] },
   { path: 'my-list', component: MyListComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' }
+  { path: '**', redirectTo: '/login' },
+  { path: 'register', component: RegisterComponent }
 ];
