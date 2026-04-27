@@ -1,3 +1,8 @@
+<nav class="navbar">
+  <a routerLink="/movies" routerLinkActive="active">My Movies</a>
+  <a routerLink="/catalog" routerLinkActive="active">Catalog</a>
+</nav>
+
 <div class="container">
   <div class="header">
     <h2>Search Movies</h2>
@@ -43,7 +48,7 @@
             {{ movie.synopsis }}
           </p>
 
-          <button class="btn-primary" (click)="addToMyList(movie._id)">
+          <button (click)="addToMyList(movie._id)">
             Add to my list
           </button>
         </div>

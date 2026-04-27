@@ -139,3 +139,32 @@ textarea {
   color: #aaa;
   margin-bottom: 10px;
 }
+
+.navbar {
+  display: flex;
+  gap: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #1f1f1f, #2c2c2c);
+  border-bottom: 2px solid #444;
+  align-items: center;
+}
+
+.navbar a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.navbar a:hover {
+  background-color: #444;
+  color: white;
+}
+
+/* Aktív oldal kiemelése */
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}

@@ -1,7 +1,12 @@
+<nav class="navbar">
+  <a routerLink="/movies" routerLinkActive="active">My Movies</a>
+  <a routerLink="/catalog" routerLinkActive="active">Catalog</a>
+</nav>
+
 <div class="container">
   <div class="header">
     <h2>My Movies</h2>
-    <a routerLink="/movies/add" class="btn-primary">+ Add Movie</a>
+    <a routerLink="/add-movie" class="btn-primary">+ Add Movie</a>
   </div>
 
   <p *ngIf="error" class="error">{{ error }}</p>

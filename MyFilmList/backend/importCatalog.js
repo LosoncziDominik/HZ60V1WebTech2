@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const fs = require("fs");
 const path = require("path");
 const { connectDB } = require("./db");
@@ -10,7 +11,13 @@ async function run() {
 
     const filePath = path.join(__dirname, "movies.json");
     const raw = fs.readFileSync(filePath, "utf-8");
-    const movies = JSON.parse(raw);
+    const data = JSON.parse(raw);
+
+    const movies = data.movies;
+
+    if (!Array.isArray(movies)) {
+      throw new Error("A movies.json fájlban nincs movies tömb.");
+    }
 
     await CatalogMovie.deleteMany({});
     await CatalogMovie.insertMany(movies);

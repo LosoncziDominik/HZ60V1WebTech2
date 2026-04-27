@@ -36,15 +36,17 @@ export class CatalogService {
   constructor(private http: HttpClient) {}
 
   searchCatalog(query: string): Observable<CatalogMovie[]> {
-    return this.http.get<CatalogMovie[]>(`${this.apiUrl}/catalog-movies?q=${encodeURIComponent(query)}`);
+    return this.http.get<CatalogMovie[]>(
+      `${this.apiUrl}/catalog-movies?q=${encodeURIComponent(query)}`
+    );
   }
 
   getCatalogAll(): Observable<CatalogMovie[]> {
     return this.http.get<CatalogMovie[]>(`${this.apiUrl}/catalog-movies`);
   }
 
-  addToMyList(catalogMovieId: string): Observable<UserMovie> {
-    return this.http.post<UserMovie>(`${this.apiUrl}/user-movies`, { catalogMovieId });
+  addToMyList(movieId: string) {
+    return this.http.post(`${this.apiUrl}/catalog-movies/${movieId}/add`, {});
   }
 
   getMyList(): Observable<UserMovie[]> {

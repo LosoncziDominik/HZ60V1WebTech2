@@ -25,4 +25,4 @@ movieSchema.index({ ownerId: 1, title: 1,});
 movieSchema.index({ ownerId: 1, release: -1});
 movieSchema.index({ ownerId: 1, watched: 1 });
 
-module.exports = mongoose.model("Movie", movieSchema);
+module.exports = mongoose.models.Movie || mongoose.model("Movie", movieSchema);
