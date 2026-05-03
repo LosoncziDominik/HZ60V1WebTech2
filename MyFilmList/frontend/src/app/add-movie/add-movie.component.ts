@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MovieService } from '../services/movie.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './add-movie.component.html'
   
 })
@@ -15,6 +16,8 @@ export class AddMovieComponent {
   form;
   error = '';
   selectedFile: File | null = null;
+  scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  status: 'watched' | 'plan' = 'plan';
 
   constructor(
     private fb: FormBuilder,
@@ -22,10 +25,10 @@ export class AddMovieComponent {
     private router: Router
   ) {
     this.form = this.fb.group({
-      title: ['', Validators.required],
-      director: ['', Validators.required],
-      length: [0, [Validators.required, Validators.min(1)]],
-      year: [0, [Validators.required, Validators.min(1888)]],
+      title: [''],
+      director: [''],
+      length: [0],
+      year: [0],
       imdbScore: [null],
       yourScore: [null],
       watched: [false],
@@ -63,12 +66,12 @@ export class AddMovieComponent {
       formData.append('imdbScore', String(value.imdbScore));
     }
 
-    if (value.yourScore !== null && value.yourScore !== undefined) {
+   if (value.yourScore !== null && value.yourScore !== undefined) {
       formData.append('yourScore', String(value.yourScore));
     }
 
-    formData.append('watched', String(value.watched ?? false));
-    formData.append('onPlanList', String(value.onPlanList ?? false));
+    formData.append('watched', String(this.status === 'watched'));
+    formData.append('onPlanList', String(this.status === 'plan'));
     formData.append('synopsis', value.synopsis ?? '');
 
     if (value.genresText) {

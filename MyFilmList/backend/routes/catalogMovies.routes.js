@@ -59,6 +59,9 @@ router.post("/:id/add", requireAuth, async (req, res) => {
       return res.status(400).json({ error: "Movie already in your list" });
     }
 
+    const watched = req.body.watched === true || req.body.watched === "true";
+    const yourScore = req.body.yourScore ? Number(req.body.yourScore) : null;
+
     const movie = await Movie.create({
       ownerId: req.userId,
       title: catalogMovie.title,
@@ -70,8 +73,9 @@ router.post("/:id/add", requireAuth, async (req, res) => {
       genres: catalogMovie.genres,
       synopsis: catalogMovie.synopsis,
       posterUrl: catalogMovie.posterUrl,
-      watched: false,
-      onPlanList: true
+      watched,
+      onPlanList: !watched,
+      yourScore
     });
 
     res.status(201).json(movie);

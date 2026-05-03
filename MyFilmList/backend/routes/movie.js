@@ -128,6 +128,7 @@ router.post("/", requireAuth,  upload.single("poster"), async (req, res) => {
     const director = String(req.body.director || "").trim();
     const length = Number(req.body.length);
     const year = Number(req.body.year);   
+    const isWatched = req.body.watched === 'true';
 
 
     if (!title) return res.status(400).json({ error: "title is required" });
@@ -145,10 +146,10 @@ router.post("/", requireAuth,  upload.single("poster"), async (req, res) => {
       year,
 
       imdbScore: req.body.imdbScore,
-      yourScore: req.body.yourScore,
+      yourScore: req.body.yourScore ? Number(req.body.yourScore) : undefined,
       actors: Array.isArray(req.body.actors) ? req.body.actors : [],
-      watched: Boolean(req.body.watched),
-      onPlanList: Boolean(req.body.onPlanList),
+      watched: isWatched,
+      onPlanList: !isWatched,
       synopsis: req.body.synopsis ?? undefined,
       watchDate: req.body.watchDate ?? undefined,
       genres: Array.isArray(req.body.genres) ? req.body.genres : [],

@@ -11,22 +11,22 @@
         </div>
 
         <div class="form-group">
-          <label>Title</label>
+          <label>Title*</label>
           <input formControlName="title">
         </div>
 
         <div class="form-group">
-          <label>Director</label>
+          <label>Director*</label>
           <input formControlName="director">
         </div>
 
         <div class="form-group">
-          <label>Length (min)</label>
+          <label>Length (min)*</label>
           <input type="number" formControlName="length">
         </div>
 
         <div class="form-group">
-          <label>Year</label>
+          <label>Year*</label>
           <input type="number" formControlName="year">
         </div>
 
@@ -36,8 +36,15 @@
         </div>
 
         <div class="form-group">
-          <label>Your Score</label>
-          <input type="number" formControlName="yourScore">
+          <label>
+            Your score:
+            <select formControlName="yourScore">
+              <option [ngValue]="null">No score</option>
+              <option *ngFor="let score of scores" [ngValue]="score">
+                {{ score }}
+              </option>
+            </select>
+          </label>
         </div>
 
       </div>
@@ -52,17 +59,19 @@
         <textarea formControlName="synopsis"></textarea>
       </div>
 
-      <div class="checkbox-group">
+      <div>
         <label>
-          <input type="checkbox" formControlName="watched">
-          Watched
-        </label>
-
-        <label>
-          <input type="checkbox" formControlName="onPlanList">
-          On Plan List
+          Status:
+          <select [ngModel]="status"
+                  (ngModelChange)="status = $event"
+                  [ngModelOptions]="{ standalone: true }"
+                  name="status">
+            <option value="plan">Plan list</option>
+            <option value="watched">Watched</option>
+          </select>
         </label>
       </div>
+      <br><br>
 
       <button type="submit" class="btn-primary">Save Movie</button>
     </form>

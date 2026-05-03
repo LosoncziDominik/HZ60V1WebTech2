@@ -5,8 +5,9 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { MyListComponent } from './myList/myList.component';
 import { CatalogDetailsComponent } from './catalog-details/catalog-details.component';
-import { authGuard } from './guards/auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { authGuard } from './guards/auth.guard';
+
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },

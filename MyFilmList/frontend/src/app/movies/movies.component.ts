@@ -4,16 +4,19 @@ import { Movie, MovieService } from '../services/movie.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive, FormsModule],
   templateUrl: './movies.component.html'
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
   error = '';
+  filter: 'all' | 'watched' | 'plan' = 'all';
+  scores = [1,2,3,4,5,6,7,8,9,10];
 
   constructor(
     private movieService: MovieService,
@@ -50,5 +53,34 @@ export class MoviesComponent implements OnInit {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  updateMovie(id: string, data: any): void {
+    this.movieService.updateUserMovie(id, data).subscribe({
+      next: () => {
+        // opcionális visszajelzés
+        console.log('updated');
+      },
+      error: err => console.error(err)
+    });
+  }
+
+  updateStatus(id: string, status: 'watched' | 'plan'): void {
+    this.updateMovie(id, {
+      watched: status === 'watched',
+      onPlanList: status === 'plan'
+    });
+  }
+
+  get filteredMovies() {
+    if (this.filter === 'watched') {
+      return this.movies.filter(m => m.watched);
+    }
+
+    if (this.filter === 'plan') {
+      return this.movies.filter(m => m.onPlanList);
+    }
+
+    return this.movies;
   }
 }

@@ -6,7 +6,7 @@
 
 <div *ngIf="movie" class="container">
 
-  <div class="movie-card">
+    <div class="movie-card">
     <div class="movie-content">
 
       <!-- kép -->
@@ -43,28 +43,34 @@
           <strong>Synopsis:</strong> {{ movie.synopsis }}
         </p>
 
-        <div class="add-box">
+        <p>
+            <label>
+                Your score:
+                <select [(ngModel)]="yourScore" class="score-input">
+                    <option [ngValue]="null">No score</option>
+                    <option *ngFor="let score of scores" [ngValue]="score">
+                    {{ score }}
+                    </option>
+                </select>
+            </label>
+        </p>
 
-          <label>
-            Your score:
-            <input type="number" min="1" max="10" [(ngModel)]="yourScore" class="score-input">
-          </label>
+        <p>
+            <label>
+                Status:
+                <select [(ngModel)]="status">
+                    <option value="none">None</option>
+                    <option value="plan">Plan list</option>
+                    <option value="watched">Watched</option>
+                </select>
+            </label>
+        </p>
+            <br><br>
+            <button class="btn-primary" (click)="addToMyList()">
+                Add to my list
+            </button>
 
-          <label>
-            <input type="checkbox" [(ngModel)]="watched">
-            Watched
-          </label>
 
-          <label>
-            <input type="checkbox" [(ngModel)]="onPlanList">
-            Plan list
-          </label>
-          <br><br>
-          <button class="btn-primary" (click)="addToMyList()">
-            Add to my list
-          </button>
-
-        </div>
 
       </div>
     </div>

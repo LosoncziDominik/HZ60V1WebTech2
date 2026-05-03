@@ -43,7 +43,12 @@ export class MovieService {
   addMovie(movieData: FormData) {
     return this.http.post<Movie>(this.apiUrl, movieData);
   }
+
   deleteMovie(id: string): Observable<{ ok: true }> {
     return this.http.delete<{ ok: true }>(`${this.apiUrl}/${id}`);
+  }
+
+  updateUserMovie(id: string, data: any) {
+    return this.http.put(`${this.apiUrl}/${id}`, data);
   }
 }

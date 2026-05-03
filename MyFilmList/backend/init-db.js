@@ -5,8 +5,7 @@ const Movie = require("./models/movie");
 (async () => {
   await connectDB();
 
-  // csak azért, hogy biztosan létrejöjjenek a collectionök + indexek
-  await User.init();  // indexek létrehozása
+  await User.init();
   await Movie.init();
 
   console.log("Collections & indexes are ready.");

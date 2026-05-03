@@ -84,10 +84,8 @@
   color: #bbb;
 }
 
-.score-input {
-  width: 55px;
-  padding: 4px;
+select {
+  padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  text-align: center;
 }

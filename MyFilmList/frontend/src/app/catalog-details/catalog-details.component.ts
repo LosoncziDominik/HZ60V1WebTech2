@@ -17,10 +17,9 @@ export class CatalogDetailsComponent implements OnInit {
   error = '';
   success = '';
 
-  yourScore?: number;
-  watched = false;
-  onPlanList = true;
-
+  scores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  yourScore: number | null = null;
+  status: 'watched' | 'plan' | 'none' = 'none';
   constructor(
     private route: ActivatedRoute,
     private catalogService: CatalogService
@@ -56,8 +55,8 @@ export class CatalogDetailsComponent implements OnInit {
 
     const data = {
       yourScore: this.yourScore,
-      watched: this.watched,
-      onPlanList: this.onPlanList
+      watched: this.status === 'watched',
+      onPlanList: this.status === 'plan'
     };
 
     this.catalogService.addToMyList(this.movie._id, data).subscribe({

@@ -16,7 +16,7 @@ async function run() {
     const movies = data.movies;
 
     if (!Array.isArray(movies)) {
-      throw new Error("A movies.json fájlban nincs movies tömb.");
+      throw new Error("There's no movies array in movies.json");
     }
 
     await CatalogMovie.deleteMany({});

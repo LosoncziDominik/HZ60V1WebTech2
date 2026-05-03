@@ -99,6 +99,20 @@ router.put("/:id", requireAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', requireAuth, async (req, res) => {
+  try {
+    const updated = await Movie.findOneAndUpdate(
+      { _id: req.params.id, ownerId: req.userId },
+      req.body,
+      { new: true }
+    );
+
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ error: 'Update failed' });
+  }
+});
+
 /**
  * DELETE /api/user-movies/:id
  */

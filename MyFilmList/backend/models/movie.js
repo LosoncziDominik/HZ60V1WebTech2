@@ -7,7 +7,7 @@ const movieSchema = new mongoose.Schema(
         title: { type: String, required: true, trim: true },
         imdbScore: { type: Number, min: 1, max: 10 },
         yourScore: { type: Number, min: 1, max: 10, default: null },
-        director: { type: String, required: true, trim: true},
+        director: { type: String, default: "unknown", trim: true },
         actors: [{ type: String, trim: true, maxLength: 100 }],
         length: { type: Number, required: true, min: 1 },
         year: { type: Number, required: true, min: 1888 },

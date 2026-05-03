@@ -38,13 +38,6 @@
   flex: 1;
 }
 
-.password-toggle {
-  border: none;
-  padding: 0 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .submit-btn {
   padding: 11px;
   border: none;
