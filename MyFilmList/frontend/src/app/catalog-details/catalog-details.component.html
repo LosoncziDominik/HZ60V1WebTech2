@@ -9,14 +9,12 @@
     <div class="movie-card">
     <div class="movie-content">
 
-      <!-- kép -->
       <img
         [src]="movie.posterUrl ? 'http://localhost:4222' + movie.posterUrl : '/no-image.png'"
         [alt]="movie.title"
         class="movie-poster"
       />
-
-      <!-- info -->
+      
       <div class="movie-info">
         <h2>{{ movie.title }}</h2>
 

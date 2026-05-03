@@ -12,14 +12,16 @@
 
   <p *ngIf="error" class="error">{{ error }}</p>
 
-  <label>
-    Filter:
-    <select [(ngModel)]="filter">
-      <option value="all">All</option>
-      <option value="watched">Watched</option>
-      <option value="plan">Plan list</option>
-    </select>
-  </label>
+  <p>
+    <label>
+      Filter:
+      <select [(ngModel)]="filter">
+        <option value="all">All</option>
+        <option value="watched">Watched</option>
+        <option value="plan">Plan list</option>
+      </select>
+    </label>
+  </p>
 
   <div *ngIf="movies.length > 0; else emptyList" class="movie-grid">
     <div class="movie-card" *ngFor="let movie of filteredMovies">

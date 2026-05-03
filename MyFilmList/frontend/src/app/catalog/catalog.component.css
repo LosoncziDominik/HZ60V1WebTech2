@@ -32,6 +32,8 @@
   background: #1e1e1e;
   padding: 16px;
   border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .movie-content {
@@ -82,11 +84,6 @@
 .empty {
   text-align: center;
   color: #bbb;
-}
-
-.movie-card {
-  cursor: pointer;
-  transition: transform 0.2s;
 }
 
 .movie-card:hover {

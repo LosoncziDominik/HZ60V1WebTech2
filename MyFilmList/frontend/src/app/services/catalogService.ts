@@ -46,10 +46,6 @@ export class CatalogService {
     return this.http.get<CatalogMovie[]>(`${this.apiUrl}/catalog-movies`);
   }
 
-  /*addToMyList(movieId: string) {
-    return this.http.post(`${this.apiUrl}/catalog-movies/${movieId}/add`, {});
-  }*/
-
   getMyList(): Observable<UserMovie[]> {
     return this.http.get<UserMovie[]>(`${this.apiUrl}/user-movies`);
   }

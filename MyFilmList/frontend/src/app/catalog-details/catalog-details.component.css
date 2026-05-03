@@ -4,30 +4,6 @@
   padding: 20px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.search-bar {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.search-bar input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
-
-.movie-grid {
-  display: grid;
-  gap: 16px;
-}
-
 .movie-card {
   background: #1e1e1e;
   padding: 16px;
@@ -50,10 +26,6 @@
 
 .movie-info {
   flex: 1;
-}
-
-.movie-info h3 {
-  margin: 0 0 8px 0;
 }
 
 .year {
@@ -79,10 +51,6 @@
   color: #5ad17b;
 }
 
-.empty {
-  text-align: center;
-  color: #bbb;
-}
 
 select {
   padding: 6px 10px;
