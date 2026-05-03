@@ -70,11 +70,11 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  addToMyList(movieId: string): void {
+  addToMyList(movieId: string, data: any): void {
     this.error = '';
     this.success = '';
 
-    this.catalogService.addToMyList(movieId).subscribe({
+    this.catalogService.addToMyList(movieId, {}).subscribe({
       next: () => {
         this.success = 'Movie added to your list.';
       },

@@ -8,6 +8,7 @@ export interface CatalogMovie {
   title: string;
   director?: string;
   year?: number;
+  length: number;
   imdbScore?: number;
   actors?: string[];
   genres?: string[];
@@ -45,9 +46,9 @@ export class CatalogService {
     return this.http.get<CatalogMovie[]>(`${this.apiUrl}/catalog-movies`);
   }
 
-  addToMyList(movieId: string) {
+  /*addToMyList(movieId: string) {
     return this.http.post(`${this.apiUrl}/catalog-movies/${movieId}/add`, {});
-  }
+  }*/
 
   getMyList(): Observable<UserMovie[]> {
     return this.http.get<UserMovie[]>(`${this.apiUrl}/user-movies`);
@@ -59,5 +60,13 @@ export class CatalogService {
 
   deleteUserMovie(id: string): Observable<{ ok: true }> {
     return this.http.delete<{ ok: true }>(`${this.apiUrl}/user-movies/${id}`);
+  }
+
+  getCatalogMovieById(id: string): Observable<CatalogMovie> {
+    return this.http.get<CatalogMovie>(`${this.apiUrl}/catalog-movies/${id}`);
+  }
+
+  addToMyList(movieId: string, data: any) {
+    return this.http.post(`${this.apiUrl}/catalog-movies/${movieId}/add`, data);
   }
 }

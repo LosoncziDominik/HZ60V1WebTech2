@@ -6,9 +6,9 @@ const catalogMovieSchema = new mongoose.Schema(
     director: { type: String, trim: true },
     year: { type: Number, min: 1888 },
     imdbScore: { type: Number, min: 0, max: 10 },
-    length: { type: Number },
+    length: { type: Number, min: 1 },
     actors: [{ type: String, trim: true }],
-    synopsis: { type: String, default: "" },
+    synopsis: { type: String, default: "No synopsis available" },
     genres: [{ type: String, trim: true }],
     posterUrl: { type: String, default: "" }
   },

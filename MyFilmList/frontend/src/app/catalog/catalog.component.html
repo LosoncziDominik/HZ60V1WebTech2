@@ -24,7 +24,11 @@
   <p *ngIf="success" class="success">{{ success }}</p>
 
   <div class="movie-grid" *ngIf="movies.length > 0; else emptyState">
-    <div class="movie-card" *ngFor="let movie of movies">
+    <div
+      class="movie-card"
+      *ngFor="let movie of movies"
+      [routerLink]="['/catalog', movie._id]"
+    >
       <div class="movie-content">
         <img
           [src]="movie.posterUrl ? 'http://localhost:4222' + movie.posterUrl : '/no-image.png'"
@@ -49,12 +53,10 @@
             {{ movie.synopsis }}
           </p>
 
-          <button (click)="addToMyList(movie._id)">
-            Add to my list
-          </button>
         </div>
       </div>
     </div>
+
   </div>
 
   <ng-template #emptyState>

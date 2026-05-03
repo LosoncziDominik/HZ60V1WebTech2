@@ -27,6 +27,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const movie = await CatalogMovie.findById(req.params.id);
+
+    if (!movie) {
+      return res.status(404).json({ error: "Movie not found" });
+    }
+
+    res.json(movie);
+  } catch (err) {
+    res.status(500).json({ error: "Could not load movie" });
+  }
+});
+
+
 router.post("/:id/add", requireAuth, async (req, res) => {
   try {
     const catalogMovie = await CatalogMovie.findById(req.params.id);

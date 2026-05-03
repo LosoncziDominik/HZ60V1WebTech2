@@ -84,11 +84,10 @@
   color: #bbb;
 }
 
-.movie-card {
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.movie-card:hover {
-  transform: scale(1.03);
+.score-input {
+  width: 55px;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
 }

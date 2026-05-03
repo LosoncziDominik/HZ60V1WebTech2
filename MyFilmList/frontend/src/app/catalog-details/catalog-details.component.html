@@ -1,0 +1,73 @@
+<a routerLink="/catalog" class="btn-primary">← Back to catalog</a>
+
+<p *ngIf="loading">Loading...</p>
+<p *ngIf="error" class="error">{{ error }}</p>
+<p *ngIf="success" class="success">{{ success }}</p>
+
+<div *ngIf="movie" class="container">
+
+  <div class="movie-card">
+    <div class="movie-content">
+
+      <!-- kép -->
+      <img
+        [src]="movie.posterUrl ? 'http://localhost:4222' + movie.posterUrl : '/no-image.png'"
+        [alt]="movie.title"
+        class="movie-poster"
+      />
+
+      <!-- info -->
+      <div class="movie-info">
+        <h2>{{ movie.title }}</h2>
+
+        <p class="year">{{ movie.year }}</p>
+        <p><strong>Director:</strong> {{ movie.director || 'Unknown' }}</p>
+
+        <p *ngIf="movie.length">
+          <strong>Length:</strong> {{ movie.length }} min
+        </p>
+
+        <p *ngIf="movie.imdbScore">
+          IMDb: {{ movie.imdbScore }}
+        </p>
+
+        <p *ngIf="movie.genres?.length">
+          <strong>Genres:</strong> {{ movie.genres?.join(', ') }}
+        </p>
+
+        <p *ngIf="movie.actors?.length">
+          <strong>Actors:</strong> {{ movie.actors?.join(', ') }}
+        </p>
+
+        <p *ngIf="movie.synopsis">
+          <strong>Synopsis:</strong> {{ movie.synopsis }}
+        </p>
+
+        <div class="add-box">
+
+          <label>
+            Your score:
+            <input type="number" min="1" max="10" [(ngModel)]="yourScore" class="score-input">
+          </label>
+
+          <label>
+            <input type="checkbox" [(ngModel)]="watched">
+            Watched
+          </label>
+
+          <label>
+            <input type="checkbox" [(ngModel)]="onPlanList">
+            Plan list
+          </label>
+          <br><br>
+          <button class="btn-primary" (click)="addToMyList()">
+            Add to my list
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
